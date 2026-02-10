@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>3Dモデルビューア</title>
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
   <style>
     body {
       margin: 0;
@@ -28,31 +29,21 @@
       border-radius: 12px;
       box-shadow: 0 6px 18px rgba(0,0,0,0.08);
     }
-    button {
-      padding: 10px 20px;
-      border: none;
-      border-radius: 8px;
-      background-color: #007bff;
-      color: #fff;
-      font-size: 16px;
-      cursor: pointer;
-      transition: background-color 0.2s ease;
-    }
-    button:hover {
-      background-color: #0056b3;
-    }
     footer {
       font-size: 14px;
       color: #666;
     }
   </style>
 </head>
+
 <body>
 
-  <h1 id="title">完成モデル（令和６年度　県営農村地域防災減災事業　千曲川沿岸更北地区　真島排水機場吐水槽工事）</h1>
+  <h1 id="title">
+    完成モデル（令和６年度　県営農村地域防災減災事業　千曲川沿岸更北地区　真島排水機場吐水槽工事）
+  </h1>
 
   <!-- モデル表示部分 -->
-  <model-viewer id="viewer"
+  <model-viewer
     src="model.glb"
     alt="3Dモデル"
     camera-controls
@@ -60,32 +51,8 @@
     environment-image="neutral">
   </model-viewer>
 
-  <!-- モデル切り替えボタン -->
-  <button id="toggleBtn">土工モデルを見る</button>
-
   <footer>指で回転・ズームできます（スマホ対応）</footer>
-
-  <script>
-    const viewer = document.getElementById("viewer");
-    const toggleBtn = document.getElementById("toggleBtn");
-    const title = document.getElementById("title");
-
-    let showingModel = "model"; // 現在のモデル
-
-    toggleBtn.addEventListener("click", () => {
-      if (showingModel === "model") {
-        viewer.src = "model2.glb";
-        title.textContent = "土工モデル（令和7年度予防治山事業第13号工事）";
-        toggleBtn.textContent = "完成モデルを見る";
-        showingModel = "model2";
-      } else {
-        viewer.src = "model.glb";
-        title.textContent = "完成モデル（令和7年度予防治山事業第13号工事）";
-        toggleBtn.textContent = "土工モデルを見る";
-        showingModel = "model";
-      }
-    });
-  </script>
 
 </body>
 </html>
+
