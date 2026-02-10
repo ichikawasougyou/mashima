@@ -1,74 +1,70 @@
 <!doctype html>
+
 <html lang="ja">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>3Dモデルビューア</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>3Dモデルビューア</title>
 
-  <script type="module"
-    src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
-  </script>
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: system-ui, sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 16px;
-      padding: 20px;
+<style>
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  background: #fafafa;
+}
 
-      /* ▼ 背景画像を追加 ▼ */
-      background: url("haikei.jpg") no-repeat center center fixed;
-      background-size: cover;
-    }
+h1 {
+  text-align: center;
+  margin-bottom: 0;
+}
 
-    h1 {
-      text-align: center;
-      margin-bottom: 0;
-      color: #fff;              /* 背景に合わせて白文字 */
-      text-shadow: 0 2px 6px rgba(0,0,0,0.6);
-    }
+/* ▼ モデル表示枠の背景に画像を設定 */
+model-viewer {
+  width: 100%;
+  max-width: 900px;
+  height: 65vh;
 
-    model-viewer {
-      width: 100%;
-      max-width: 900px;
-      height: 65vh;
+  /* 背景画像ここ */
+  background-image: url("haikei.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 
-      /* ▼ ビューア自体を透過 ▼ */
-      background: transparent;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
 
-      border-radius: 12px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.25);
-    }
+footer {
+  font-size: 14px;
+  color: #666;
+}
+</style>
 
-    footer {
-      font-size: 14px;
-      color: #fff;
-      text-shadow: 0 2px 6px rgba(0,0,0,0.6);
-    }
-  </style>
 </head>
 
 <body>
 
-  <h1 id="title">
-    完成モデル（真島排水機場吐水槽工事）
-  </h1>
+<h1 id="title">
+完成モデル（真島排水機場吐水槽工事）
+</h1>
 
-  <!-- 3Dモデル表示 -->
-  <model-viewer
-    src="model.glb"
-    alt="3Dモデル"
-    camera-controls
-    auto-rotate
-    environment-image="neutral"
-    exposure="1"
-  >
-  </model-viewer>
+<!-- 3Dモデル -->
 
-  <footer>指で回転・ズームできます（スマホ対応）</footer>
+<model-viewer
+src="model.glb"
+alt="3Dモデル"
+camera-controls
+auto-rotate
+environment-image="neutral"> </model-viewer>
+
+<footer>指で回転・ズームできます（スマホ対応）</footer>
 
 </body>
 </html>
